@@ -1,3 +1,116 @@
+* {
+    font-family: monospace;
+    font-size: xx-large;
+    font-weight: 200;
+    color: white;
+    border-radius: 10px;
+}
 body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     background-color: grey;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 255, 0.575);
+    padding: 20px;
+    border-radius: 10px;
+}
+.screen {
+    background: rgba(252, 215, 147, 0.826);
+    width: auto;
+    height: 50px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.operators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 10px;
+    border: solid 1px yellow;
+}
+.operator {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+.operator:hover {
+    background: rgba(0, 0, 123, 0.575);
+}
+.below-screen{
+    display: flex;
+}
+.numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0px 10px;;
+}
+.row {
+    display: flex;
+    gap: 25px;
+}
+.number,
+#del {
+    padding: 20px 30px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px;
+
+}
+.number:hover {
+    background: rgba(0, 0, 123, 0.575);
+}
+.side-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+#ac,
+#del {
+    font-size: 20px;
+    background: rgba(255, 68, 68, 0.73);
+}
+#ac:hover,
+#del:hover {
+    background: rgba(0, 0, 123, 0.575);
+}
+#ac {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#del {
+    padding: 10px 20px;
+}
+#ac,
+#equal {
+    flex: 1;
+    padding: 15px;
+    border: solid 1px;
+}
+
+/* footer */
+a {
+    text-decoration: none;
+    font-size: 15px;
+}
+.footer {
+    display: flex;
+    margin-top: auto;
+    padding: 15px;
 }

@@ -13,6 +13,7 @@ const multiply = function(a, b) {
     return a * b
 };
 const divide = function(a, b) {
+    if (b == 0) return 'ERROR'
     return a / b
 }
 const power = function(x, n) {
@@ -26,6 +27,7 @@ const factorial = function(n) {
 	return n * factorial( n - 1 );
 };
 function writeOnScreen () {
+    if (this.id === 'del') return
     const screen = document.querySelector('.screen')
 	screen.textContent += this.textContent;
 }
@@ -51,6 +53,10 @@ function setSecondNumber () {
     const index         = screenText.indexOf(operator)
     secondNumber        = +screenText.slice(index + 1, screenText.length - 1)
 }
+function deleteLastChar () {
+    const screen = document.querySelector('.screen')
+    screen.textContent = screen.textContent.slice(0, -1)
+}
 
 // main
 
@@ -71,3 +77,7 @@ equal.addEventListener('click', () => {
     setSecondNumber()
     operate()
 })
+
+// del
+const del = document.querySelector('#del')
+del.addEventListener('click', deleteLastChar)

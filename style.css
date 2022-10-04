@@ -6,13 +6,16 @@
     border-radius: 10px;
 }
 body {
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: grey;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.spacing {
+    height: 150px;
 }
 .container {
     display: flex;
@@ -34,7 +37,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
     margin: 5px 10px;
     border: solid 1px yellow;
 }

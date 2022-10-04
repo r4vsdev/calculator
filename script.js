@@ -1,9 +1,9 @@
-let displayVar = '';
-let screen = document.querySelector('.screen')
-
+let firstNumber;
+let secondNumber;
+let operator;
 
 const add = function(a, b) {
-	return a+b;
+	return a + b
 };
 const subtract = function(a, b) {
 	return a-b;
@@ -25,28 +25,49 @@ const factorial = function(n) {
 	if (n === 0) return 1;
 	return n * factorial( n - 1 );
 };
-function operate (string) {
-    if (operator === '+') return add(a, b)
-    if (operator === '-') return subtract(a, b)
-    if (operator === '*') return multiply(a, b)
-    if (operator === '/') return divide(a, b)
-    if (operator === '^') return power(a, b)
-}
 function writeOnScreen () {
-    const pressedButton = this.textContent;
-	screen.textContent += pressedButton;
+    const screen = document.querySelector('.screen')
+	screen.textContent += this.textContent;
 }
 function clearDisplay () {
-	// displayVar = '';
+    const screen = document.querySelector('.screen')
 	screen.textContent = '';
-	// console.log('display cleared', displayVar)
+}
+function operate () {
+    const screen = document.querySelector('.screen')
+    if (operator === '+') screen.textContent += add(firstNumber, secondNumber)
+    if (operator === '-') screen.textContent += subtract(firstNumber, secondNumber)
+    if (operator === 'x') screen.textContent += multiply(firstNumber, secondNumber)
+    if (operator === '/') screen.textContent += divide(firstNumber, secondNumber)
+    if (operator === '^') screen.textContent += power(firstNumber, secondNumber)
+}
+function setFirstNumber () {
+    const screenText = document.querySelector('.screen ').textContent
+    firstNumber      = +screenText
+    operator         = this.textContent
+}
+function setSecondNumber () {
+    const screenText    = document.querySelector('.screen').textContent
+    const index         = screenText.indexOf(operator)
+    secondNumber        = +screenText.slice(index + 1, screenText.length - 1)
 }
 
-const btn = document.querySelectorAll('.btn');
-btn.forEach((button) => button.addEventListener('click', writeOnScreen))
+// main
 
+// set first number
+const operators = document.querySelectorAll('.operator')
+operators.forEach(button => button.addEventListener('click', setFirstNumber))
+
+// write numbers/operators on screen
+const btn = document.querySelectorAll('.btn');
+btn.forEach(button => button.addEventListener('click', writeOnScreen))
+
+// clear display
 const ac = document.querySelector('#ac')
 ac.addEventListener('click', clearDisplay)
 
 const equal = document.querySelector('#equal')
-// equal.addEventListener('click', operate(displayVar))
+equal.addEventListener('click', () => {
+    setSecondNumber()
+    operate()
+})

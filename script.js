@@ -60,16 +60,17 @@ function setNextNumber () {
             , ''))
     console.log(numbers)
     numbers[0] = operate(numbers[0], numbers[1])
+    console.log(numbers)
     numbers.pop()
     screen.textContent = numbers[0]
 }
 function operate (firstNumber, secondNumber) {
     const screen = document.querySelector('.screen')
     if (operator === '+') return add(firstNumber, secondNumber)
-    if (operator === '-') screen.textContent = subtract(firstNumber, secondNumber)
-    if (operator === 'x') screen.textContent = multiply(firstNumber, secondNumber)
-    if (operator === '/') screen.textContent = divide(firstNumber, secondNumber)
-    if (operator === '^') screen.textContent = power(firstNumber, secondNumber)
+    if (operator === '-') return subtract(firstNumber, secondNumber)
+    if (operator === 'x') return multiply(firstNumber, secondNumber)
+    if (operator === '/') return divide(firstNumber, secondNumber)
+    if (operator === '^') return power(firstNumber, secondNumber)
 }
 
 const operators = document.querySelectorAll('.operator')

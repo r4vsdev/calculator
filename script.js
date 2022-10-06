@@ -5,6 +5,7 @@ const add = function(a, b) {
 	return a + b
 };
 const subtract = function(a, b) {
+    if (b < 0) return a+b
 	return a-b;
 };
 const multiply = function(a, b) {
@@ -52,17 +53,14 @@ function setFirstNumber () {
 }
 function setNextNumber () {
     const screen = document.querySelector('.screen ')
-    console.log(screen.textContent)
     numbers.push(           // push only the 2nd number to array
         +screen.textContent
         .replace(
-            `${numbers[0]}${operator}`
+            `${numbers[0]}`
             , ''))
-    console.log(numbers)
     numbers[0] = operate(numbers[0], numbers[1])
-    console.log(numbers)
     numbers.pop()
-    screen.textContent = (numbers[0] == 'ERROR') ? 
+    screen.textContent = (numbers[0] == 'ERROR') ?
                  screen.textContent = numbers[0] : 
                  screen.textContent = Math.round(numbers[0] * 100) / 100
 }

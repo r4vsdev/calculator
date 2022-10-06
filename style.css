@@ -26,6 +26,8 @@ body {
 }
 .screen {
     background: rgba(252, 215, 147, 0.826);
+    color: black;
+    font-weight: bold;
     width: auto;
     height: 50px;
     margin: 10px;

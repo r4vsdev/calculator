@@ -62,7 +62,7 @@ function setNextNumber () {
     numbers[0] = operate(numbers[0], numbers[1])
     console.log(numbers)
     numbers.pop()
-    screen.textContent = numbers[0]
+    screen.textContent = Math.round(numbers[0] * 100) / 100
 }
 function operate (firstNumber, secondNumber) {
     const screen = document.querySelector('.screen')
